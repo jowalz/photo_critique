@@ -93,21 +93,26 @@ if uploaded_file is not None:
 # 5. User Interaction & Generate Critique
 # ---------------------------------------------------
 
-# Layout für Submit-Button und Radio-Buttons
-submit = st.button("Press Button to Receive Critique")
+# Layout mit zwei Spalten: Submit-Button in col1, Radio-Buttons in col2
+col1, col2 = st.columns([1, 2])
 
-# Sprachwahl unter dem Submit-Button
-language = st.radio(
-    "",  # Kein Label für die Sprachwahl
-    ["English", "German", "Spanish", "French"],
-    index=0,  # Standardwert auf "English"
-    horizontal=True  # Radio-Buttons horizontal anzeigen (ab Streamlit v1.18+)
-)
+with col1:
+    # Submit-Button
+    submit = st.button("Press Button to Receive Critique")
 
-# Beispiel: Ausgabe von Sprachwahl und Button-Status
+with col2:
+    # Sprachwahl direkt unter dem Button
+    language = st.radio(
+        "",  # Kein Label für die Radio-Buttons
+        ["English", "German", "Spanish", "French"],
+        index=0,  # Standardwert auf "English"
+        horizontal=True  # Radio-Buttons horizontal anzeigen (ab Streamlit v1.18+)
+    )
+
+# Beispiel: Aktion bei Klick auf den Submit-Button
 if submit:
     st.write(f"You selected the language: {language}")
-    
+
 
 # Define Critique Prompt
 input_prompt = """
