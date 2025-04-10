@@ -96,15 +96,14 @@ if uploaded_file is not None:
 #Sprachwahl und Submit-Button nebeneinander positionieren
 col1, col2 = st.columns([3, 2])
 
-with col1:
+with col2:
     # Sprachwahl-Schalte
-    language = st.radio(
-        "Select Language", 
+    language = st.radio( 
         ["English", "German", "Spanish", "French"], 
         index=0
     )
 
-with col2:
+with col1:
     # Submit Button
     submit = st.button("Press Button to Receive Critique")
 
