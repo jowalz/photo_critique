@@ -84,7 +84,7 @@ st.set_page_config(page_title="", layout="centered")
 # For simplicity, we'll keep only the image upload in this example.
 
 # Set Up Image Upload Interface
-uploaded_file = st.file_uploader("Upload Your Photo to Receive AI-Powered Critique", type=["jpg", "png", "jpeg"])
+uploaded_file = st.file_uploader("", type=["jpg", "png", "jpeg"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="", use_container_width=True)
