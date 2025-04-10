@@ -114,10 +114,10 @@ if st.button("Press Button to Receive Critique"):
         - Color Balance: Examine ...\n
         - Creativity and Impact: Consider ...\n\n
         Begin your critique with a positive two-sentence summary ...\n\n
-        Structure your detailed feedback into two distinct sections:\n\n
+        Structure your detailed feedback into two distinct sections covering each aspect with 1 sentence:\n\n
         **Positive Critique:** ...\n\n
         **Recommended Optimizations:** ...\n\n
-        Conclude your critique with an overall rating of the photo on a scale of 1 to 10, where 10 represents the highest possible score.
+        Conclude your critique with an overall rating of the photo on a scale of 1 to 10, where 10 represents the highest possible score and a short description like Based on our AI critique system, this photo received a rating of {rating}. Let's look at the 'Recommended Optimizations' to see how it could be improved.
         """
 
         # Generate Critique
