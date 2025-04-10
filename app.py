@@ -75,17 +75,17 @@ def get_image_content(uploaded_file):
 st.set_page_config(page_title="Photo Critique App", layout="centered")
 
 # Display App Title
-st.title("")
+# st.title("Photo Critique App")
 
 # Set Up Language Selector
-st.write("Select Your Preferred Language")
+# st.write("Select your preferred language:")
 supported_languages = {
     "English": "en",
     "Spanish": "es",
     "French": "fr",
     "German": "de"
 }
-selected_language = st.selectbox("Select Your Preferred Language", options=supported_languages.keys(), index=0)
+selected_language = st.selectbox("Select your preferred language", options=supported_languages.keys(), index=0)
 language_code = supported_languages[selected_language]
 
 # Set Up Image Upload Interface
@@ -99,7 +99,7 @@ if uploaded_file is not None:
 # ---------------------------------------------------
 
 # Submit Button to Generate Critique
-if st.button("Press Button"):
+if st.button("Press Button to Receive Critique"):
     try:
         # Handle Image Upload and Display
         image_data = get_image_content(uploaded_file)
@@ -114,10 +114,10 @@ if st.button("Press Button"):
         - Color Balance: Examine ...\n
         - Creativity and Impact: Consider ...\n\n
         Begin your critique with a positive two-sentence summary ...\n\n
-        Structure your detailed feedback into two distinct sections:\n\n
+        Structure your detailed feedback into two distinct sections covering each aspect with 1 sentence:\n\n
         **Positive Critique:** ...\n\n
         **Recommended Optimizations:** ...\n\n
-        Conclude your critique with an overall rating of the photo on a scale of 1 to 10, where 10 represents the highest possible score.
+        Conclude your critique with an overall rating of the photo on a scale of 1 to 10, where 10 represents the highest possible score and a short description like Based on our AI critique system, this photo received a rating of {rating}. Let's look at the 'Recommended Optimizations' to see how it could be improved.
         """
 
         # Generate Critique
