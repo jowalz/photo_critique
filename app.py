@@ -84,10 +84,10 @@ st.set_page_config(page_title="", layout="centered")
 # For simplicity, we'll keep only the image upload in this example.
 
 # Set Up Image Upload Interface
-uploaded_file = st.file_uploader("Upload your Photo for Critique", type=["jpg", "png", "jpeg"])
+uploaded_file = st.file_uploader("Upload Your Photo to Receive AI-Powered Critique", type=["jpg", "png", "jpeg"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Your Uploaded Photo", use_container_width=True)
+    st.image(image, caption="", use_container_width=True)
 
 # ---------------------------------------------------
 # 5. User Interaction & Generate Critique
@@ -98,16 +98,18 @@ submit = st.button("Press Button Get Critique")
 
 # Define Critique Prompt
 input_prompt = """
-You are an expert professional photographer. Please critique the uploaded photo focusing on the following aspects:
-- Composition
-- Lighting
-- Focus and Sharpness
-- Exposure
-- Color Balance
-- Creativity and Impact
-
-Provide constructive feedback and suggestions for improvement in a clear and detailed manner.
-Atructure your answers in 2 sections: Positive Critique and Recommended Optimizations. Keep your answers 1 sentence per aspect long, and use an upbeat, chipper tone
+Provide a constructive and detailed photographic critique, offering specific feedback and suggestions for improvement on the following aspects:\n\n"
+            "- Composition: Analyze the arrangement of elements within the frame, including leading lines, rule of thirds, balance, and overall visual flow.\n"
+            "- Lighting: Evaluate the quality, direction, and intensity of light, and its impact on mood, shadows, and highlights.\n"
+            "- Focus and Sharpness: Assess the clarity of the main subject and the overall sharpness of the image.\n"
+            "- Exposure: Determine if the image is correctly exposed, noting any areas that are overexposed (blown out) or underexposed (lacking detail).\n"
+            "- Color Balance: Examine the accuracy and harmony of the colors in the image, including white balance and overall color palette.\n"
+            "- Creativity and Impact: Consider the originality, emotional resonance, and overall effectiveness of the photograph in conveying its intended message or feeling.\n\n"
+            "Begin your critique with a positive two-sentence summary highlighting the photo's strengths and initial appeal.\n\n"
+            "Structure your detailed feedback into two distinct sections:\n\n"
+            "**Positive Critique:** Offer one upbeat and chipper sentence for each of the six aspects mentioned above, pointing out what works well in the photo.\n\n"
+            "**Recommended Optimizations:** Provide one clear and actionable sentence for each of the six aspects, suggesting specific ways the photographer could enhance these elements in future shots. Maintain an upbeat and chipper tone throughout.\n\n"
+            "Conclude your critique with an overall rating of the photo on a scale of 1 to 10, where 10 represents the highest possible score."t
 
 """
 
