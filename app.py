@@ -128,8 +128,7 @@ Provide a constructive and detailed photographic critique, offering specific fee
             "**Positive Critique:** one sentence per aspect...\n\n"
             "**Recommended Optimizations:** one sentence per aspect...\n\n"
             "Conclude your critique with an overall rating of the photo on a scale of 1 to 10 and a short explanation, where 10 represents the highest possible score.
-            "Please use an upbeat, chipper tone."
-""" + f" Provide the answer fully translated in {language}."
+""" + f" Provide the answer in {language}. Please use an upbeat, chipper tone."
 
 if submit:
     try:
