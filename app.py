@@ -93,12 +93,16 @@ if uploaded_file is not None:
 # 5. User Interaction & Generate Critique
 # ---------------------------------------------------
 
-
-# Submit Button
+# Layout für Submit-Button und Radio-Buttons
 submit = st.button("Press Button to Receive Critique")
 
-# Horizontale Sprachwahl erstellen
-language = st.radio("", ["English", "German", "Spanish", "French"], index=0, horizontal=True)
+# Sprachwahl unter dem Submit-Button
+language = st.radio(
+    "",  # Kein Label für die Sprachwahl
+    ["English", "German", "Spanish", "French"],
+    index=0,  # Standardwert auf "English"
+    horizontal=True  # Radio-Buttons horizontal anzeigen (ab Streamlit v1.18+)
+)
 
 # Beispiel: Ausgabe von Sprachwahl und Button-Status
 if submit:
