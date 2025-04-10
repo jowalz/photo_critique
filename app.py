@@ -31,7 +31,7 @@ except KeyError:
 # ---------------------------------------------------
 
 # Initialize the Generative Model
-model = genai.GenerativeModel("gemini-1.5-flash-8b")  # Initializes an instance of the GenerativeModel class from the genai SDK
+model = genai.GenerativeModel("gemini-2.0-flash")  # Initializes an instance of the GenerativeModel class from the genai SDK
 
 def get_gemini_response(input_prompt, image):
     """
