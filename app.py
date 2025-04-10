@@ -78,7 +78,7 @@ st.set_page_config(page_title="Photo Critique App", layout="centered")
 st.title("")
 
 # Set Up Language Selector
-st.write("Select Your Preferred Languag")
+st.write("Select Your Preferred Language")
 supported_languages = {
     "English": "en",
     "Spanish": "es",
