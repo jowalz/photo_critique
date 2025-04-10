@@ -109,7 +109,7 @@ Provide a constructive and detailed photographic critique, offering specific fee
             "Structure your detailed feedback into two distinct sections:\n\n"
             "**Positive Critique:** one sentence per aspect...\n\n"
             "**Recommended Optimizations:** one sentence per aspect...\n\n"
-            "Conclude your critique with an overall rating of the photo on a scale of 1 to 10, where 10 represents the highest possible score.
+            "Conclude your critique with an overall rating of the photo on a scale of 1 to 10 and a short explanation, where 10 represents the highest possible score.
 
 """
 
