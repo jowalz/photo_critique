@@ -78,28 +78,28 @@ st.set_page_config(page_title="Photo Critique App", layout="centered")
 st.title("")
 
 # Set Up Language Selector
-st.write("Select your preferred language:")
+st.write("")
 supported_languages = {
     "English": "en",
     "Spanish": "es",
     "French": "fr",
     "German": "de"
 }
-selected_language = st.selectbox("Language", options=supported_languages.keys(), index=0)
+selected_language = st.selectbox("Select Your Preferred Language", options=supported_languages.keys(), index=0)
 language_code = supported_languages[selected_language]
 
 # Set Up Image Upload Interface
 uploaded_file = st.file_uploader("Upload Your Photo to Receive AI-Powered Critique", type=["jpg", "png", "jpeg"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Photo", use_container_width=True)
+    st.image(image, caption="", use_container_width=True)
 
 # ---------------------------------------------------
 # 5. User Interaction & Generate Critique
 # ---------------------------------------------------
 
 # Submit Button to Generate Critique
-if st.button("Submit"):
+if st.button("Press Button"):
     try:
         # Handle Image Upload and Display
         image_data = get_image_content(uploaded_file)
