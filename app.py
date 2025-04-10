@@ -75,7 +75,7 @@ def get_image_content(uploaded_file):
 st.set_page_config(page_title="Photo Critique App", layout="centered")
 
 # Display App Title
-st.title("Photo Critique App")
+st.title("")
 
 # Set Up Language Selector
 st.write("Select your preferred language:")
