@@ -113,7 +113,7 @@ if uploaded_file is not None:
 # ---------------------------------------------------
 
 # Submit Button to Generate Critique
-# submit = st.button("Press Button to Receive Critique")
+submit = st.button("Press Button to Receive Critique")
 
 # Define Critique Prompt
 input_prompt = """
