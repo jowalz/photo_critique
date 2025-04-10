@@ -93,19 +93,20 @@ if uploaded_file is not None:
 # 5. User Interaction & Generate Critique
 # ---------------------------------------------------
 
-#Sprachwahl und Submit-Button nebeneinander positionieren
+# Sprachwahl und Submit-Button nebeneinander positionieren
 col1, col2 = st.columns([3, 2])
-
+with col1:
+    # Submit Button
+    submit = st.button("Press Button to Receive Critique")
 with col2:
     # Sprachwahl-Schalte
-    language = st.radio( 
+    language = st.radio(
+        "Select Language", 
         ["English", "German", "Spanish", "French"], 
         index=0
     )
 
-with col1:
-    # Submit Button
-    submit = st.button("Press Button to Receive Critique")
+
 
 
 # Define Critique Prompt
