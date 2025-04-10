@@ -121,7 +121,7 @@ if st.button("Press Button"):
         """
 
         # Generate Critique
-        response = get_gemini_response(input_prompt, image_data, de)
+        response = get_gemini_response(input_prompt, image_data, language_code)
 
         # Display AI-Generated Critique
         st.subheader("Photo Critique")
