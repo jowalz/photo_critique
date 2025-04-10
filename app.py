@@ -78,23 +78,23 @@ def get_image_content(uploaded_file):
 st.set_page_config(page_title="", layout="centered")
 
 # Display App Title
-st.markdown("<h1 style='text-align: center;'>PhotoCritique App</h1>", unsafe_allow_html=True)
+# st.markdown("<h1 style='text-align: center;'>PhotoCritique App</h1>", unsafe_allow_html=True)
 
 # Optional: Additional Inputs (Scene Type, Desired Feedback, etc.)
 # For simplicity, we'll keep only the image upload in this example.
 
 # Set Up Image Upload Interface
-uploaded_file = st.file_uploader("Upload a Photo for Critique", type=["jpg", "png", "jpeg"])
+uploaded_file = st.file_uploader("Upload your Photo for Critique", type=["jpg", "png", "jpeg"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Photo", use_container_width=True)
+    st.image(image, caption="Your Uploaded Photo", use_container_width=True)
 
 # ---------------------------------------------------
 # 5. User Interaction & Generate Critique
 # ---------------------------------------------------
 
 # Submit Button to Generate Critique
-submit = st.button("Get Critique")
+submit = st.button("Press Button Get Critique")
 
 # Define Critique Prompt
 input_prompt = """
@@ -107,7 +107,7 @@ You are an expert professional photographer. Please critique the uploaded photo 
 - Creativity and Impact
 
 Provide constructive feedback and suggestions for improvement in a clear and detailed manner.
-Keep your answers per aspect 1 sentence long, and use an upbeat, chipper tone
+Atructure your answers in 2 sections: Positive Critique and Recommended Optimizations. Keep your answers 1 sentence per aspect long, and use an upbeat, chipper tone
 
 """
 
