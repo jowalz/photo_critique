@@ -111,7 +111,7 @@ with col2:
 
 # Beispiel: Aktion bei Klick auf den Submit-Button
 if submit:
-    st.write(f"You selected the language: {language}")
+    st.write(f"You selected the language {language}, please wait a moment ✋")
 
 
 # Define Critique Prompt
