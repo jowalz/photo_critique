@@ -96,94 +96,31 @@ if uploaded_file is not None:
 # Submit Button to Generate Critique
 submit = st.button("Press Button to Receive Critique")
 
-# Sprachwahl-Schaltfläche neben dem Button hinzufügen
-col1, col2 = st.columns([3, 2])
+# Define Critique Prompt
+input_prompt = """
+Provide a constructive and detailed photographic critique, offering specific feedback and suggestions for improvement on the following aspects:\n\n"
+            "- Composition: Analyze ...\n"
+            "- Lighting: Evaluate ...\n"
+            "- Focus and Sharpness: Assess ...\n"
+            "- Exposure: Determine ...\n"
+            "- Color Balance: Examine ...\n"
+            "- Creativity and Impact: Consider ...\n\n"
+            "Begin your critique with a positive two-sentence summary ...\n\n"
+            "Structure your detailed feedback into two distinct sections:\n\n"
+            "**Positive Critique:** one sentence per aspect...\n\n"
+            "**Recommended Optimizations:** one sentence per aspect...\n\n"
+            "Conclude your critique with an overall rating of the photo on a scale of 1 to 10 and a short explanation, where 10 represents the highest possible score.
+            "Please use an upbeat, chipper tone."
+            "bitte schreibe auf deutsch"
 
-with col1:
-    # Sprachwahl-Schalte
-    language = st.radio(
-        "Select Language", 
-        ["English", "German", "Spanish", "French"], 
-        index=0
-    )
+"""
 
-with col2:
-    # Submit Button
-    submit = st.button("Press Button to Receive Critique")
-
-# Definieren Sie den Critique Prompt basierend auf der ausgewählten Sprache
-if language == "English":
-    input_prompt = """
-    Provide a constructive and detailed photographic critique, offering specific feedback and suggestions for improvement on the following aspects:\n\n
-                "- Composition: Analyze ...\n"
-                "- Lighting: Evaluate ...\n"
-                "- Focus and Sharpness: Assess ...\n"
-                "- Exposure: Determine ...\n"
-                "- Color Balance: Examine ...\n"
-                "- Creativity and Impact: Consider ...\n\n"
-                "Begin your critique with a positive two-sentence summary ...\n\n"
-                "Structure your detailed feedback into two distinct sections:\n\n"
-                "**Positive Critique:** one sentence per aspect...\n\n"
-                "**Recommended Optimizations:** one sentence per aspect...\n\n"
-                "Conclude your critique with an overall rating of the photo on a scale of 1 to 10 and a short explanation, where 10 represents the highest possible score.
-                Please use an upbeat, chipper tone."
-    """
-elif language == "German":
-    input_prompt = """
-    Bitte geben Sie eine konstruktive und detaillierte fotografische Kritik ab, indem Sie spezifisches Feedback und Verbesserungsvorschläge zu den folgenden Aspekten machen:\n\n
-                "- Komposition: Analysieren Sie ...\n"
-                "- Beleuchtung: Bewerten Sie ...\n"
-                "- Fokus und Schärfe: Beurteilen Sie ...\n"
-                "- Belichtung: Bestimmen Sie ...\n"
-                "- Farbgleichgewicht: Untersuchen Sie ...\n"
-                "- Kreativität und Wirkung: Berücksichtigen Sie ...\n\n"
-                "Beginnen Sie Ihre Kritik mit einer positiven zweisätzigen Zusammenfassung ...\n\n"
-                "Strukturieren Sie Ihr detailliertes Feedback in zwei separate Abschnitte:\n\n"
-                "**Positive Kritik:** ein Satz pro Aspekt...\n\n"
-                "**Empfohlene Optimierungen:** ein Satz pro Aspekt...\n\n"
-                "Schließen Sie Ihre Kritik mit einer Gesamtbewertung des Fotos auf einer Skala von 1 bis 10 und einer kurzen Erklärung ab, wobei 10 die höchstmögliche Punktzahl darstellt.
-                Bitte verwenden Sie einen aufmunternden, fröhlichen Ton."
-    """
-elif language == "Spanish":
-    input_prompt = """
-    Proporcione una crítica fotográfica constructiva y detallada, ofreciendo comentarios específicos y sugerencias de mejora sobre los siguientes aspectos:\n\n
-                "- Composición: Analice ...\n"
-                "- Iluminación: Evalúe ...\n"
-                "- Enfoque y nitidez: Evalúe ...\n"
-                "- Exposición: Determine ...\n"
-                "- Balance de colores: Examine ...\n"
-                "- Creatividad e impacto: Considere ...\n\n"
-                "Comience su crítica con un resumen positivo de dos oraciones ...\n\n"
-                "Estructure sus comentarios detallados en dos secciones distintas:\n\n"
-                "**Crítica Positiva:** una oración por aspecto...\n\n"
-                "**Optimización Recomendada:** una oración por aspecto...\n\n"
-                "Concluya su crítica con una calificación general de la foto en una escala de 1 a 10 y una breve explicación, donde 10 representa la puntuación más alta posible.
-                Use un tono alegre y optimista."
-    """
-elif language == "French":
-    input_prompt = """
-    Fournissez une critique photographique constructive et détaillée, en offrant des commentaires spécifiques et des suggestions d'amélioration sur les aspects suivants :\n\n
-                "- Composition : Analysez ...\n"
-                "- Éclairage : Évaluez ...\n"
-                "- Mise au point et netteté : Évaluez ...\n"
-                "- Exposition : Déterminez ...\n"
-                "- Balance des couleurs : Examinez ...\n"
-                "- Créativité et impact : Considérez ...\n\n"
-                "Commencez votre critique par un résumé positif de deux phrases ...\n\n"
-                "Structurez vos commentaires détaillés en deux sections distinctes :\n\n"
-                "**Critique positive :** une phrase par aspect...\n\n"
-                "**Optimisations recommandées :** une phrase par aspect...\n\n"
-                "Concluez votre critique par une note globale de la photo sur une échelle de 1 à 10 et une courte explication, où 10 représente la note la plus élevée possible.
-                Utilisez un ton joyeux et optimiste."
-    """
-
-# Der restliche Code bleibt unverändert.
 if submit:
     try:
         # Handle Image Upload and Display
         image_data = get_image_content(uploaded_file)
         
-        # Generate Critique basierend auf der Sprachwahl
+        # Generate Critique
         response = get_gemini_response(input_prompt, image_data)
         
         # Display AI-Generated Critique
@@ -194,5 +131,4 @@ if submit:
         st.error(str(e))
     except Exception as e:
         # Manage Errors: Other Exceptions
-        st.error(f"An error occurred: {e}")
         st.error(f"An error occurred: {e}")
