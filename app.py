@@ -84,36 +84,17 @@ st.set_page_config(page_title="", layout="centered")
 # For simplicity, we'll keep only the image upload in this example.
 
 # Set Up Image Upload Interface
-# Set Up Image Upload Interface
 uploaded_file = st.file_uploader("Upload Your Photo to Receive AI-Powered Critique", type=["jpg", "png", "jpeg"])
 if uploaded_file is not None:
-    try:
-        # Handle Image Upload and Display
-        image = Image.open(uploaded_file)
-        st.image(image, caption="", use_container_width=True)
-        
-        # Prepare Image Data
-        image_data = get_image_content(uploaded_file)
-        
-        # Generate Critique
-        response = get_gemini_response(input_prompt, image_data)
-        
-        # Display AI-Generated Critique
-        st.subheader("Photo Critique")
-        st.write(response)
-    except FileNotFoundError as e:
-        # Manage Errors: File Not Uploaded
-        st.error(str(e))
-    except Exception as e:
-        # Manage Errors: Other Exceptions
-        st.error(f"An error occurred: {e}")
+    image = Image.open(uploaded_file)
+    st.image(image, caption="", use_container_width=True)
 
 # ---------------------------------------------------
 # 5. User Interaction & Generate Critique
 # ---------------------------------------------------
 
 # Submit Button to Generate Critique
-submit = st.button("Press Button to Receive Critique")
+submit = st.button("Press Button Get Critique")
 
 # Define Critique Prompt
 input_prompt = """
