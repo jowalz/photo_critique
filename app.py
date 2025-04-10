@@ -88,7 +88,7 @@ st.markdown("<h1 style='text-align: center;'>PhotoCritique App</h1>", unsafe_all
 uploaded_file = st.file_uploader("Upload a Photo for Critique", type=["jpg", "png", "jpeg"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Photo", use_column_width=True)
+    st.image(image, caption="Uploaded Photo", use_container_width=True)
 
 # ---------------------------------------------------
 # 5. User Interaction & Generate Critique
