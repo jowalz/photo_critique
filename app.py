@@ -1,31 +1,30 @@
-import os
-from dotenv import load_dotenv
-import google.generativeai as genai  # Google Generative AI Python SDK that contains methods and classes to interact with Google's generative AI models.
 import streamlit as st
 from PIL import Image
+import google.generativeai as genai  # Google Generative AI Python SDK that contains methods and classes to interact with Google's generative AI models.
 
 # ---------------------------------------------------
-# 1. Initialize Environment
+# 1. Initialize Environment (No direct action needed for Streamlit Secrets)
 # ---------------------------------------------------
-
-# Load environment variables from the .env file
-load_dotenv()
 
 # Quick Note on Inspiration:
 # Inspired by the need to provide users with expert photo critiques using advanced AI models,
 # enhancing photography skills through constructive feedback.
 
 # ---------------------------------------------------
-# 2. Configure API Key
+# 2. Configure API Key using Streamlit Secrets
 # ---------------------------------------------------
 
-# Set up your API key
-API_KEY = os.getenv('API_KEY')
-if not API_KEY:
-    raise ValueError("No API key found. Please set GOOGLE_API_KEY in your .env file.")
-
-# Configure Google Generative AI SDK with the API key
-genai.configure(api_key=API_KEY)
+# Access the API key from Streamlit secrets
+try:
+    api_key = st.secrets["API_KEY"]
+    if not api_key:
+        st.error("Google API key not found in Streamlit Secrets! Please add it to the Secrets section of your app.")
+        st.stop()
+    # Configure Google Generative AI SDK with the API key
+    genai.configure(api_key=api_key)
+except KeyError:
+    st.error("Google API key not found in Streamlit Secrets! Please add a secret named 'API_KEY' with your key.")
+    st.stop()
 
 # ---------------------------------------------------
 # 3. Initialize Generative Model & Define Functions
