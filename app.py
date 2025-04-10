@@ -76,7 +76,7 @@ def get_image_content(uploaded_file):
 # ---------------------------------------------------
 
 # Configure Streamlit Page
-st.set_page_config(page_title="PhotoCritique", layout="centered")
+st.set_page_config(page_title="", layout="centered")
 
 # Display App Title
 st.markdown("<h1 style='text-align: center;'>PhotoCritique App</h1>", unsafe_allow_html=True)
@@ -108,6 +108,8 @@ You are an expert professional photographer. Please critique the uploaded photo 
 - Creativity and Impact
 
 Provide constructive feedback and suggestions for improvement in a clear and detailed manner.
+Keep your answers per aspect 1 sentence long, and use an upbeat, chipper tone
+
 """
 
 if submit:
