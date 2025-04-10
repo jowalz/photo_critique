@@ -98,7 +98,7 @@ col1, col2 = st.columns([1, 2])
 
 with col1:
     # Submit-Button
-    submit = st.button("Press Button to Receive Critique")
+    submit = st.button("Press Button to Receive Your Photo Critique")
 
 with col2:
     # Sprachwahl direkt unter dem Button
