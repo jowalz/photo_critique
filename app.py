@@ -94,7 +94,7 @@ if uploaded_file is not None:
 # ---------------------------------------------------
 
 # Submit Button to Generate Critique
-submit = st.button("Press Button Get Critique")
+submit = st.button("Press Button to Receive Critique")
 
 # Define Critique Prompt
 input_prompt = """
@@ -109,7 +109,7 @@ Provide a constructive and detailed photographic critique, offering specific fee
             "Structure your detailed feedback into two distinct sections:\n\n"
             "**Positive Critique:** ...\n\n"
             "**Recommended Optimizations:** ...\n\n"
-            "Conclude your critique with an overall rating of the photo on a scale of 1 to 10, where 10 represents the highest possible score.
+            "Conclude your critique with an overall rating of the photo on a scale of 1 to 10, where 10 represents the highest possible score and a short 1 sentence explanation.
 
 """
 
